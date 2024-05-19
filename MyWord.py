@@ -8,4 +8,4 @@ def cut(s):
     return s.split(' ')
 
 if __name__=="__main__":
-    print("What in the holy McFuck is this")
+    print("Sorry")
