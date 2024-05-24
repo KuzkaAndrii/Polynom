@@ -6,5 +6,6 @@ def cut(s):
     while s.count("  ")>0:
         s=s.replace('  ', ' ')
     return s.split(' ')
+
 if __name__=="__main__":
     print("Sorry")

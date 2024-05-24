@@ -48,7 +48,7 @@ class Polynom:
     def point_in_polinom(self, x):
         res=0.0
         for pwd, coef in self.__data.items():
-            res+=x**pwd * coef
+            res=res+(x**pwd) * coef
         return res
     def get_data(self):
         return self.__data
@@ -75,8 +75,8 @@ class Polynom:
         data1 = p1.get_data()
         data2 = p2.get_data()
         new_data = {}
-        for pw1 in set(data1.keys()) | set(data2.keys()):
-            for pw2 in set(data1.keys()) | set(data2.keys()):
+        for pw1 in set(data1.keys()):
+            for pw2 in set(data2.keys()):
                 new_data[pw1 + pw2] = data1.get(pw1, 0.0) * data2.get(pw2, 0.0) + new_data.get(pw1+pw2, 0.0)
                 if new_data[pw1 + pw2] == 0.0:
                     del new_data[pw1 + pw2]
@@ -100,7 +100,7 @@ if __name__=="__main__":
 
     d1.show()
 
-    d2.add(d2, p1)
+    d2.add(d1, p1)
     q.substract(d2, p2)
     d3.substract(p1, p2)
     d4.multiply(d3, d3)
@@ -112,6 +112,7 @@ if __name__=="__main__":
             break
         except:
             print("please, give corect datas")
+    #q.show()
     qx=q.point_in_polinom(x)
     hx=h.point_in_polinom(x)
     with open('output.txt', "at") as f:
